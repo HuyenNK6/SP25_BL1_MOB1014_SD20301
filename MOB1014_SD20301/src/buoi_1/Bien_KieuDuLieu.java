@@ -43,7 +43,7 @@ public class Bien_KieuDuLieu {
         String ho = "Nguyen"; //kiểu chuỗi
         String ten = "Huyen";
         System.out.println("Ten la: "+ ho + " " + ten);
-        boolean gioiTinh = true;
+        boolean gioiTinh = true;//chỉ 2 giá trị là true /false
         System.out.println("Gioi tinh: "+ gioiTinh);
     }
 }
