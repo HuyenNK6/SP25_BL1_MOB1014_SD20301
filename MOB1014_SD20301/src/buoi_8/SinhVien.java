@@ -10,6 +10,7 @@ package buoi_8;
  */
 //lớp Sinh viên
 public class SinhVien {
+
     //1. thuộc tính: MSV, Họ tên, Giới tính, Ngày sinh, Ngành học,Kỳ, Điểm
     //=> private tất cả thuộc tính
     private String MSV;
@@ -23,10 +24,11 @@ public class SinhVien {
     // Cách 1:(ctrl cách enter) x2 lần
     //Cách 2: Click chuột phải -> Insert Code -> Constructor
     //-> Select None và Select All => Generrate
-    
+
     //Constructor không tham số
     public SinhVien() {
     }
+
     //Constructor có tham số
     public SinhVien(String MSV, String hoTen, boolean gioiTinh, String ngaySinh, String nganhHoc, int kyHoc, double diem) {
         this.MSV = MSV;
@@ -37,6 +39,7 @@ public class SinhVien {
         this.kyHoc = kyHoc;
         this.diem = diem;
     }
+
     //3. Getter & Setter
     //Click chuột phải => Insert Code -> Getter and Setter -> Sellect All
     public String getMSV() {
@@ -94,20 +97,27 @@ public class SinhVien {
     public void setDiem(double diem) {
         this.diem = diem;
     }
+
     //4.Phương thức In thông tin
     //toString()
     //Click chuột phải => Insert Code => toString() => Generate
-
     @Override
     public String toString() {
-        return "SinhVien{" + "MSV=" + MSV + ", hoTen=" + hoTen + ", gioiTinh=" + gioiTinh + ", ngaySinh=" + ngaySinh + ", nganhHoc=" + nganhHoc + ", kyHoc=" + kyHoc + ", diem=" + diem + '}';
+        return "SinhVien{" + "MSV=" + MSV + ", hoTen=" + hoTen
+                + ", gioiTinh=" + getValueGioiTinh() + ", ngaySinh=" + ngaySinh
+                + ", nganhHoc=" + nganhHoc + ", kyHoc=" + kyHoc + ", diem=" + diem + '}';
     }
-    
-    public void inThongTin(){
+
+    public void inThongTin() {
         System.out.println(toString());
     }
-    
-    
-    
-    
+
+    public String getValueGioiTinh() {
+//        if (gioiTinh){//(gioiTinh == true)
+//            return "Nam";
+//        }
+//        return "Nữ";
+        return gioiTinh ? "Nam" : "Nữ";
+    }
+
 }
