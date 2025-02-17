@@ -13,9 +13,10 @@ import java.util.Scanner;
  */
 public class HoaService {//QLHoa
     //class: xử lý toàn bộ logic
-
+    //biến, đối tượng được khai toàn cục
     Scanner sc = new Scanner(System.in);
     ArrayList<Hoa> lstHoas = new ArrayList<>();
+    
     public void nhap(){
         String tiepTuc;
         do {
