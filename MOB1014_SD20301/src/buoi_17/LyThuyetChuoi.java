@@ -4,12 +4,15 @@
  */
 package buoi_17;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Huyen
  */
 public class LyThuyetChuoi {
-     /*
+
+    /*
          * 1. Khai báo chuỗi
          * String s= "...";
          * 
@@ -73,7 +76,8 @@ public class LyThuyetChuoi {
             KyTuCanXoa: là 1 ký tự hoặc 1 mảng ký tự cần xóa
      */
  /* REGEX
-         * REGEX hoặc Regular Expression hay tiếng Việt được gọi là Biểu thức chính quy, 
+         * REGEX hoặc Regular Expression 
+           hay tiếng Việt được gọi là Biểu thức chính quy, 
          * là một cấu trúc rất mạnh để mô tả một chuỗi theo cách thống nhất chung.
 
          * 1. Các lớp ký tự Regex
@@ -113,4 +117,50 @@ public class LyThuyetChuoi {
         \\, \., \$, \^ | đại diện "\", ".", "$", "^"
         
      */
+    public static void main(String[] args) {
+        //xuLyChuoi();
+        //họ và tên chỉ đc chứa ký tự chữ a-zA-Z & dấu cách
+        //+ xảy ra 1 hoặc nhiều lần
+        //cách 1: ^[a-zA-Z ]+$: đưa luôn dấu cách
+        //cách 2:^[a-zA-Z\\s]+$: sử dụng \\s
+        String hoVaTen = kiemTraDauVao("ho va ten", "^[a-zA-Z\\s]+$");
+        System.out.println("Ho va ten: " + hoVaTen);
+        //tuổi chỉ được chứa ký tự số 0-9
+        String tuoi = kiemTraDauVao("tuoi", "^[0-9]+$");
+        System.out.println("Tuoi: " + tuoi);
+        //sdt: bắt đầu là số 0 và có độ dài là 10 số
+        String sdt = kiemTraDauVao("SĐT", "^0[1-9][0-9]{8}$");
+        System.out.println("SĐT: " + sdt);
+        //check MSV: có 2 ký tự đầu là PH, 5 ký tự sau là số
+        //check CCCD: có 12 số
+        //check Năm sinh: có 4 số
+    }
+
+    public static String kiemTraDauVao(String msg, String pattern) {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        //kiểm tra input có hợp lệ hay ko? => sai yêu cầu nhập lại
+        do {
+            System.out.println("Moi nhap " + msg + ": ");
+            input = sc.nextLine();
+        } while (!input.matches(pattern));
+        return input;
+    }
+
+    public static void xuLyChuoi() {
+        String hoVaTen = "Nguyen Khanh Huyen";
+        System.out.println("Lower case: " + hoVaTen.toLowerCase());
+        System.out.println("Upper case: " + hoVaTen.toUpperCase());
+        String diaChi = "      Ha Noi     ";
+        System.out.println("Dia chi: " + diaChi.trim() + ", Viet Nam");
+        String sdt = "0987654321";
+        if (sdt.startsWith("0")) {//endsWith tương tự
+            System.out.println("SDT bat dau bang so 0");
+        }
+        if (hoVaTen.toLowerCase().contains("nguyen")) {
+            System.out.println("Ten chua tu Nguyen");
+        }
+        //substring , join về tự thao tác
+
+    }
 }
